@@ -42,5 +42,3 @@ See `docs/adr/` for architectural decisions and `GLOSSARY.md` for domain terms.
 2. Commit model files (`customtypes/`, `prismicio-types.d.ts`).
 3. Run `npx prismic push` (git-gated).
 4. Update routes/types if new page types are added.
-   EOF
-   echo done
