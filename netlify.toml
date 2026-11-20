@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Prerendered immutable assets
+[[headers]]
+  for = "/_app/immutable/*"
+  values = { "Cache-Control" = "public, immutable, max-age=31536000" }

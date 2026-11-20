@@ -46,49 +46,93 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type BlogPostDocumentDataSlicesSlice = TextBlockSlice
+type NewsDocumentDataSlicesSlice = TextBlockSlice
 
 /**
- * Content for Blog Post documents
+ * Content for News documents
  */
-interface BlogPostDocumentData {
+interface NewsDocumentData {
 	/**
-	 * Slice Zone field in *Blog Post*
+	 * Slice Zone field in *News*
 	 *
 	 * - **Field Type**: Slice Zone
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blog_post.slices[]
+	 * - **API ID Path**: news.slices[]
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/slices
 	 */
-	slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *Blog Post*
+	slices: prismic.SliceZone<NewsDocumentDataSlicesSlice>;
+	
+	/**
+	 * Title field in *News*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: news.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Date field in *News*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: news.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/date
+	 */
+	date: prismic.DateField;
+	
+	/**
+	 * Hero field in *News*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: news.hero
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	hero: prismic.ImageField<never>;
+	
+	/**
+	 * Summary field in *News*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: news.summary
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	summary: prismic.KeyTextField;/**
+	 * Meta Title field in *News*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: blog_post.meta_title
+	 * - **API ID Path**: news.meta_title
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_title: prismic.KeyTextField;
 	
 	/**
-	 * Meta Description field in *Blog Post*
+	 * Meta Description field in *News*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: blog_post.meta_description
+	 * - **API ID Path**: news.meta_description
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_description: prismic.KeyTextField;
 	
 	/**
-	 * Meta Image field in *Blog Post*
+	 * Meta Image field in *News*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blog_post.meta_image
+	 * - **API ID Path**: news.meta_image
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
@@ -96,17 +140,192 @@ interface BlogPostDocumentData {
 }
 
 /**
- * Blog Post document from Prismic
+ * News document from Prismic
  *
- * - **API ID**: `blog_post`
+ * - **API ID**: `news`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type BlogPostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<BlogPostDocumentData>, "blog_post", Lang>;
+export type NewsDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<NewsDocumentData>, "news", Lang>;
 
-export type AllDocumentTypes = BlogPostDocument;
+type PageDocumentDataSlicesSlice = TextBlockSlice
+
+/**
+ * Content for Page documents
+ */
+interface PageDocumentData {
+	/**
+	 * Slice Zone field in *Page*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/slices
+	 */
+	slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
+	
+	/**
+	 * Title field in *Page*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;/**
+	 * Meta Title field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: page.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_title: prismic.KeyTextField;
+	
+	/**
+	 * Meta Description field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: page.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_description: prismic.KeyTextField;
+	
+	/**
+	 * Meta Image field in *Page*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+type ProjectDocumentDataSlicesSlice = TextBlockSlice
+
+/**
+ * Content for Project documents
+ */
+interface ProjectDocumentData {
+	/**
+	 * Slice Zone field in *Project*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/slices
+	 */
+	slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice>;
+	
+	/**
+	 * Title field in *Project*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Hero field in *Project*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project.hero
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	hero: prismic.ImageField<never>;
+	
+	/**
+	 * Summary field in *Project*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project.summary
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	summary: prismic.KeyTextField;
+	
+	/**
+	 * Date field in *Project*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/date
+	 */
+	date: prismic.DateField;/**
+	 * Meta Title field in *Project*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: project.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_title: prismic.KeyTextField;
+	
+	/**
+	 * Meta Description field in *Project*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: project.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_description: prismic.KeyTextField;
+	
+	/**
+	 * Meta Image field in *Project*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Project document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
+
+export type AllDocumentTypes = NewsDocument | PageDocument | ProjectDocument;
 
 /**
  * Primary content in *Text Block → Default → Primary*
@@ -161,9 +380,15 @@ declare module "@prismicio/client" {
 	
 	namespace Content {
 		export type {
-			BlogPostDocument,
-			BlogPostDocumentData,
-			BlogPostDocumentDataSlicesSlice,
+			NewsDocument,
+			NewsDocumentData,
+			NewsDocumentDataSlicesSlice,
+			PageDocument,
+			PageDocumentData,
+			PageDocumentDataSlicesSlice,
+			ProjectDocument,
+			ProjectDocumentData,
+			ProjectDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			TextBlockSlice,
 			TextBlockSliceDefaultPrimary,
