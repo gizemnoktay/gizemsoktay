@@ -1,7 +1,17 @@
 {
 	"extends": "$app/tsconfig",
 	"compilerOptions": {
-		"strict": true
+		"strict": true,
+		"types": [
+			"$app/types",
+			"node"
+		]
 	},
-	"include": ["src", "vite.config.ts", "prismicio-types.d.ts"]
+	"include": [
+		"src",
+		"vite.config.ts",
+		"prismicio-types.d.ts",
+		"eslint.config.js",
+		"prettier.config.js"
+	]
 }
