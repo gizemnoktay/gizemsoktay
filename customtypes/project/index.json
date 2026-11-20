@@ -1,6 +1,6 @@
 {
   "format": "page",
-  "id": "blog_post",
+  "id": "project",
   "json": {
     "Main": {
       "uid": {
@@ -19,6 +19,31 @@
         },
         "fieldset": "Slice Zone",
         "type": "Slices"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "hero": {
+        "config": {
+          "label": "Hero"
+        },
+        "type": "Image"
+      },
+      "summary": {
+        "config": {
+          "label": "Summary"
+        },
+        "type": "Text"
+      },
+      "date": {
+        "config": {
+          "label": "Date"
+        },
+        "type": "Date"
       }
     },
     "SEO & Metadata": {
@@ -49,7 +74,7 @@
       }
     }
   },
-  "label": "Blog Post",
+  "label": "Project",
   "repeatable": true,
   "status": true
 }
