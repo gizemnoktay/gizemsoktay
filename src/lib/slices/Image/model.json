@@ -4,34 +4,34 @@
 	"type": "SharedSlice",
 	"variations": [
 		{
-			"id": "default",
-			"name": "Default",
-			"docURL": "",
-			"imageUrl": "",
-			"version": "",
 			"description": "Single image with optional caption and size",
+			"docURL": "",
+			"id": "default",
+			"imageUrl": "",
+			"name": "Default",
 			"primary": {
 				"image": {
-					"type": "Image",
 					"config": {
 						"label": "Image"
-					}
+					},
+					"type": "Image"
 				},
 				"caption": {
-					"type": "Text",
 					"config": {
 						"label": "Caption"
-					}
+					},
+					"type": "Text"
 				},
 				"size": {
-					"type": "Select",
 					"config": {
+						"default_value": "content",
 						"label": "Size",
-						"options": ["content", "wide", "full"],
-						"default_value": "content"
-					}
+						"options": ["content", "wide", "full"]
+					},
+					"type": "Select"
 				}
-			}
+			},
+			"version": ""
 		}
 	]
 }

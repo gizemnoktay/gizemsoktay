@@ -4,42 +4,42 @@
 	"type": "SharedSlice",
 	"variations": [
 		{
-			"id": "default",
-			"name": "Default",
-			"docURL": "",
-			"imageUrl": "",
-			"version": "",
 			"description": "Grid of images",
+			"docURL": "",
+			"id": "default",
+			"imageUrl": "",
+			"name": "Default",
 			"primary": {
 				"images": {
-					"type": "Group",
 					"config": {
-						"label": "Images",
 						"fields": {
 							"image": {
-								"type": "Image",
 								"config": {
 									"label": "Image"
-								}
+								},
+								"type": "Image"
 							},
 							"caption": {
-								"type": "Text",
 								"config": {
 									"label": "Caption"
-								}
+								},
+								"type": "Text"
 							}
-						}
-					}
+						},
+						"label": "Images"
+					},
+					"type": "Group"
 				},
 				"columns": {
-					"type": "Select",
 					"config": {
+						"default_value": "3",
 						"label": "Columns",
-						"options": ["2", "3", "4"],
-						"default_value": "3"
-					}
+						"options": ["2", "3", "4"]
+					},
+					"type": "Select"
 				}
-			}
+			},
+			"version": ""
 		}
 	]
 }
