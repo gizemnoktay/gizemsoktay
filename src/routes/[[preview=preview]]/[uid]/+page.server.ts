@@ -10,10 +10,10 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageServerLoad = async ({ params, fetch, cookies }) => {
 	const client = createClient({ fetch, cookies });
-	try {
-		const page = await client.getByUID('page', params.uid);
-		return { page };
-	} catch {
+	const items = await client.getAllByType('page');
+	const page = items.find((p) => p.uid === params.uid);
+	if (!page) {
 		throw error(404, 'Page not found');
 	}
+	return { page };
 };

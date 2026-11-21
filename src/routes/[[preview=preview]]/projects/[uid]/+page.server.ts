@@ -10,10 +10,10 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageServerLoad = async ({ params, fetch, cookies }) => {
 	const client = createClient({ fetch, cookies });
-	try {
-		const page = await client.getByUID('project', params.uid);
-		return { page };
-	} catch {
+	const projects = await client.getAllByType('project');
+	const page = projects.find((p) => p.uid === params.uid);
+	if (!page) {
 		throw error(404, 'Project not found');
 	}
+	return { page };
 };
