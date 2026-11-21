@@ -1,3 +1,3 @@
 # Defer cross-cutting concerns to follow-up issues
 
-Analytics, accessibility targets, performance budgets, error monitoring, font strategy and the visual design system are intentionally deferred. They are tracked as GitHub issues and will each become their own ADR when the visual design research lands.
+Analytics, accessibility targets, performance budgets, error monitoring, font strategy (pairing) and dark mode are intentionally deferred. The visual design system is settled in ADR-0011. Each remaining item is tracked as a GitHub issue and will become its own ADR when picked up.

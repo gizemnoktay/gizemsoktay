@@ -1,0 +1,37 @@
+{
+	"id": "image",
+	"name": "Image",
+	"type": "SharedSlice",
+	"variations": [
+		{
+			"description": "Single image with optional caption and size",
+			"docURL": "",
+			"id": "default",
+			"imageUrl": "",
+			"name": "Default",
+			"primary": {
+				"image": {
+					"config": {
+						"label": "Image"
+					},
+					"type": "Image"
+				},
+				"caption": {
+					"config": {
+						"label": "Caption"
+					},
+					"type": "Text"
+				},
+				"size": {
+					"config": {
+						"default_value": "content",
+						"label": "Size",
+						"options": ["content", "wide", "full"]
+					},
+					"type": "Select"
+				}
+			},
+			"version": ""
+		}
+	]
+}
