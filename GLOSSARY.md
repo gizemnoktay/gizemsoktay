@@ -5,8 +5,12 @@ A portfolio site for a designer, built with SvelteKit and Prismic. Content is au
 ## Language
 
 **Project**:
-A portfolio case study authored as a Prismic `project` page type, shown at `/projects/:uid`.
+A portfolio entry (research or design project) authored as a Prismic `project` page type, shown at `/projects/:uid`. Definition still under discussion (research case study vs. design project).
 _Avoid_: work, case study, portfolio item
+
+**Publication**:
+A published research output, listed on the `/publications` page (a Prismic `page` document).
+_Avoid_: paper, article, output
 
 **News**:
 A short update or article authored as a Prismic `news` page type, shown at `/news/:uid`.

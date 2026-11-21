@@ -1,56 +1,71 @@
-# sv
+# Gizem Oktay — Personal Website
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal website of **Gizem Oktay**, a more-than-human researcher with a design
+background, currently completing a PhD at the Industrial Design department of
+TU/e (Eindhoven University of Technology).
 
-## Creating a project
+- TU/e profile: https://research.tue.nl/p/en/persons/gizem-oktay
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Audience and goals
 
-```sh
-# create a new project
-npx sv create my-app
-```
+- **Audience:** researchers and designers.
+- **Goals:** showcase research/design work, share news and updates, provide a
+  publications index, introduce Gizem's background and approach, and make it easy
+  to get in touch.
+- **Primary calls to action:** browse projects → contact.
 
-To recreate this project with the same configuration:
+## Stack
 
-```sh
-# recreate this project
-npx sv@1.7.0 create --template minimal --types ts --install npm .
-```
+- SvelteKit 5 (runes) with TypeScript, static-first on Netlify
+- Prismic as the content backend (page types + slices)
+- Vitest (unit + component), ESLint, Prettier, Husky pre-commit
+- GitHub Actions for CI; Netlify for CD and content rebuilds
 
-## Adding features
+## Content model (Prismic)
 
-Add features to your project with `sv add`:
+| Type      | Route              | Purpose                                      |
+|-----------|--------------------|----------------------------------------------|
+| `project` | `/projects/:uid`   | Research/design case study                    |
+| `news`    | `/news/:uid`       | Update or short article                      |
+| `page`    | `/:uid`            | Static pages (About, Contact, Publications)  |
 
-```sh
-npx sv add
-```
+Shared slice: **Text Block** (rich text field `text`).
 
-For example, to add Tailwind CSS:
+Index routes: `/projects`, `/news`. The `publications` page is a `page`-type
+document with uid `publications` (served via the generic `/:uid` route) and
+functions as a glossary/index of publications.
 
-```sh
-npx sv add tailwindcss
-```
+## Navigation
 
-## Developing
+Home, Projects, News, Publications, About, Contact.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Development
 
 ```sh
-npm run build
+npm install
+npm run dev          # dev server
+npm run check        # Svelte/TS type checking
+npm run typecheck    # alias for check
+npm run lint         # Prettier check + ESLint
+npm run format       # Prettier write
+npm run test         # unit + component tests
+npm run build        # production build
+npm run preview      # preview production build
 ```
 
-You can preview the production build with `npm run preview`.
+## Architecture
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- `docs/adr/` — architectural decision records
+- `GLOSSARY.md` — domain language
+
+## Open questions
+
+- **Definition of "Project"** (research case study vs. design project vs.
+  publication) is still being discussed — see the PR for this branch.
+
+## Deployment
+
+Static-first on Netlify. See `.github/workflows/` and `netlify.toml`.
+Content changes in Prismic trigger a Netlify rebuild via a webhook.
+EOF
+echo done
