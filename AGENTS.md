@@ -21,7 +21,7 @@ See `docs/adr/` for architectural decisions and `GLOSSARY.md` for domain terms.
 - **TypeScript strict.** Annotate public APIs; prefer generated Prismic types (`Content.*`) over `any`.
 - **Prismic access via `#lib/prismicio.ts`.** Fetch in `+page.server.ts` / `entries()`, never in components on the client.
 - **Slices:** one component per slice in `src/lib/slices/<Name>/index.svelte`; register in `src/lib/slices/index.ts` (generated — don't hand-edit the export list).
-- **Styling:** scoped `<style>`; use CSS custom properties for theme tokens; avoid global styles outside `app.html`.
+- **Styling:** scoped `<style>`; use CSS custom properties for theme tokens (see `src/lib/styles/tokens.css`); avoid global styles outside `app.html`.
 - **Images:** use Prismic's imgix helpers (`asImageSrc`/`asImageWidthSrcSet`) with responsive `srcset` + `sizes` and `loading="lazy"`.
 - **Naming:** components PascalCase; routes lowercase kebab-case; Prismic API IDs snake_case.
 

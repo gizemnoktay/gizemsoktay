@@ -1,0 +1,114 @@
+/* Design tokens for Gizem's personal website.
+   Warm paper palette (v1). All values are semantic so a dark variant
+   can be added later by overriding the same custom properties under
+   [data-theme="dark"] without touching component styles. */
+
+:root {
+	/* --- Color (warm paper) --- */
+	--color-bg: #f4efe6;
+	--color-bg-elevated: #faf6ee;
+	--color-bg-sunken: #ece6da;
+	--color-fg: #1c1a17;
+	--color-fg-muted: #5a554d;
+	--color-fg-subtle: #8a8378;
+	--color-border: #e3d9c8;
+	--color-border-strong: #cfc3ad;
+	--color-accent: #b85c38;
+	--color-accent-hover: #9a4a2c;
+	--color-accent-fg: #faf6ee;
+	--color-link: #b85c38;
+	--color-focus: #b85c38;
+
+	/* --- Typography --- */
+	--font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+	--text-xs: 0.75rem; /* 12px */
+	--text-sm: 0.875rem; /* 14px */
+	--text-base: 1rem; /* 16px */
+	--text-lg: 1.125rem; /* 18px */
+	--text-xl: 1.25rem; /* 20px */
+	--text-2xl: 1.5rem; /* 24px */
+	--text-3xl: 2rem; /* 32px */
+	--text-4xl: 2.5rem; /* 40px */
+	--text-5xl: 3rem; /* 48px */
+	--text-6xl: 4rem; /* 64px */
+
+	--leading-tight: 1.1;
+	--leading-snug: 1.25;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.7;
+
+	--tracking-tight: -0.02em;
+	--tracking-normal: 0;
+	--tracking-wide: 0.04em;
+
+	/* --- Spacing (4px base) --- */
+	--space-1: 0.25rem; /* 4px */
+	--space-2: 0.5rem; /* 8px */
+	--space-3: 0.75rem; /* 12px */
+	--space-4: 1rem; /* 16px */
+	--space-6: 1.5rem; /* 24px */
+	--space-8: 2rem; /* 32px */
+	--space-12: 3rem; /* 48px */
+	--space-16: 4rem; /* 64px */
+	--space-24: 6rem; /* 96px */
+	--space-32: 8rem; /* 128px */
+
+	/* --- Radius --- */
+	--radius-sm: 0.25rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 0.75rem;
+	--radius-xl: 1rem;
+	--radius-full: 9999px;
+
+	/* --- Layout / grid --- */
+	--grid-columns: 12;
+	--grid-gutter: var(--space-6);
+	--max-width-text: 42rem; /* ~672px, ~65ch */
+	--max-width-content: 72rem; /* 1152px */
+	--max-width-wide: 80rem; /* 1280px */
+	--max-width-prose: 65ch;
+}
+
+/* Base (global) — kept minimal; component styles stay scoped. */
+html,
+body {
+	font-family: var(--font-sans);
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+	line-height: var(--leading-normal);
+}
+
+::selection {
+	background: var(--color-accent);
+	color: var(--color-accent-fg);
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}
+
+/* Dark variant (future): override the same tokens. */
+[data-theme='dark'] {
+	--color-bg: #1a1815;
+	--color-bg-elevated: #24211d;
+	--color-bg-sunken: #12100e;
+	--color-fg: #f4efe6;
+	--color-fg-muted: #b5aea2;
+	--color-fg-subtle: #8a8378;
+	--color-border: #3a352d;
+	--color-border-strong: #5a5347;
+	--color-accent: #d9825e;
+	--color-accent-hover: #e89a78;
+	--color-accent-fg: #1a1815;
+	--color-link: #d9825e;
+	--color-focus: #d9825e;
+}
